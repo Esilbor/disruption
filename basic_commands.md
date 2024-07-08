@@ -6,7 +6,8 @@
 - **`docker ps`** : Affiche les conteneurs Docker en cours d'exécution.
 - **`docker stop <container_name>`** : Arrête un conteneur en cours d'exécution.
 - **`docker start <container_name>`** : Démarre un conteneur arrêté.
-- **`docker rm <container_name>`** : Supprime un conteneur Docker.
+- **`docker rm <container_name>`** : Supprime un conteneur Docker.- 
+- **`docker rmi <image_id>`** : Supprime une image Docker.
 - **`docker logs <container_name>`** : Affiche les journaux d'un conteneur Docker.
 - **`docker exec -it <container_name> bash`** : Ouvre un terminal interactif bash dans le conteneur en cours d'exécution.
 

@@ -5,3 +5,5 @@
 - **Installer les outils necessaires**
 
     ***vscode / git / chrome / docker / docker compose***
+- **Creer l'arborescence de dossier**
+    ***srcs/requirements/mariadb | nginx | wordpress [...]***

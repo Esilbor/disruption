@@ -10,4 +10,13 @@ RUN openssl req -x509 -nodes \
         -keyout /etc/nginx/ssl/inception.key \
         -subj "/C=FR/ST=IDF/L=Paris/O=42/OU=42/CN=bbresil.42.fr/UDI=bbresil"
 
-RUN 
+RUN mkdir -p /var/run/nginx
+
+COPY conf/nginx.conf /etc/nginx/nginx.conf
+
+RUN chmod 755 /var/www/html
+RUN chown -R www-data:www-data /var/www/html
+
+EXPOSE 443
+
+CMD [ "nginx", "-g", "daemon off;" ]
