@@ -14,10 +14,11 @@ compose:
 	mkdir -p /home/$(HOST_USER)/data/wordpress	
 	mkdir -p /home/$(HOST_USER)/data/mariadb
 #	COMPOSE
-	docker compose -p $(PROJECT_NAME) -f ./srcs/docker-compose.yml up -d 
+	docker compose -p $(PROJECT_NAME) -f ./srcs/docker-compose.yml up --build -d 
 
 start:
 	docker compose -p $(PROJECT_NAME) -f ./srcs/docker-compose.yml start
+	
 
 stop:
 	docker compose -p $(PROJECT_NAME) -f ./srcs/docker-compose.yml stop
@@ -30,14 +31,14 @@ fclean: down
 
 clean: clean
 #	RM DATA DIR
-	sudo rm -rf /home/$(HOST_USER)/data	
 #	RM IMAGES
-	-docker rmi -f $(IMAGES)  
+	-docker compose -p $(PROJECT_NAME) rm
 #	RM CONTAINERS
 #	-docker rm -f $(CONTAINERS)
 #	RM VOLUMES
 	-docker volume rm $(VOLUMES)
 #	RM NETWORKS
 #	-docker network rm $(NETWORKS)
+	sudo rm -rf /home/$(HOST_USER)/data	
 
 re: fclean compose
