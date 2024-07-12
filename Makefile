@@ -20,8 +20,8 @@ stop:
 down:
 	docker compose -p $(PROJECT_NAME) -f ./srcs/docker-compose.yml down
 
-fclean: down
-	-docker system prune --volumes -f
+fclean: clean
+	-docker system prune --volumes -f -a
 
 clean: down
 # Remove Docker containers
