@@ -19,9 +19,11 @@
 
 ## Commandes MariaDB de base
 - **`mysql -u root -p`** : Se connecte à MariaDB en tant qu'utilisateur root.
-- **`CREATE DATABASE <database_name>;`** : Crée une nouvelle base de données.
 - **`SHOW DATABASES;`** : Affiche toutes les bases de données.
 - **`USE <database_name>;`** : Sélectionne une base de données pour les opérations ultérieures.
+- **`SHOW TABLES;`** : Affiche les tables contenues dans la base de donnees.
+- **`SELECT * FROM <table_name;`** : Affiche le contenu d'une table de la base de donnees.
+- **`CREATE DATABASE <database_name>;`** : Crée une nouvelle base de données.
 - **`CREATE USER '<user>'@'localhost' IDENTIFIED BY '<password>';`** : Crée un nouvel utilisateur.
 - **`GRANT ALL PRIVILEGES ON <database_name>.* TO '<user>'@'localhost';`** : Accorde tous les privilèges à un utilisateur sur une base de données.
 - **`FLUSH PRIVILEGES;`** : Recharge les privilèges.

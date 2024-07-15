@@ -14,4 +14,4 @@ wp user create --allow-root $WP_USER $WP_USER_EMAIL --user_pass=$WP_USER_PASSWOR
 chown -R www-data:www-data /var/www/wordpress
 chmod -R 755 /var/www/wordpress
 
-exec php-fpm7.4 -F
+exec php-fpm7.4 -Fdg
