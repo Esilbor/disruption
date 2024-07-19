@@ -12,6 +12,7 @@ all: compose
 compose: 
 	mkdir -p /home/$(HOST_USER)/data/wordpress
 	mkdir -p /home/$(HOST_USER)/data/mariadb
+	mkdir -p /home/$(HOST_USER)/data/static_site
 	docker compose -p $(PROJECT_NAME) -f ./srcs/docker-compose.yml up --build -d 
 start:
 	docker compose -p $(PROJECT_NAME) -f ./srcs/docker-compose.yml start

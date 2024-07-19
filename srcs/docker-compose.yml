@@ -48,6 +48,17 @@ services:
     expose:
       - "9000"
 
+  static_website:
+    container_name: static_website
+    build:
+      context: requirements/bonus/static_webpage
+      dockerfile: Dockerfile
+    networks:
+      - inception
+    volumes:
+      - static_site:/var/www/static_site
+    restart: unless-stopped
+
 
 volumes:
   mariadb:
@@ -63,6 +74,13 @@ volumes:
       type: "none"
       o: "bind"
       device: "/home/boris/data/wordpress"
+
+  static_site:
+    driver: local
+    driver_opts:
+      type: "none"
+      o: "bind"
+      device: "/home/boris/data/static_site"
 
 networks:
   inception:
