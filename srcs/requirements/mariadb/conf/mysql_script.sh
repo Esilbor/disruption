@@ -11,4 +11,5 @@ mariadb -e "GRANT ALL PRIVILEGES ON ${SQL_DATABASE}.* TO \`${SQL_USER}\`@'%' IDE
 mariadb -e "FLUSH PRIVILEGES;"
 
 mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
-exec mysqld_safe
+
+exec "$@"

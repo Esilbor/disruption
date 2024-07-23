@@ -11,7 +11,8 @@ COPY ./conf/my.cnf /etc/mysql/mariadb.conf.d/my.cnf
 COPY ./conf/mysql_script.sh /mysql_script.sh
 RUN chmod 755 /mysql_script.sh
 
+ENTRYPOINT ["./mysql_script.sh"]
 
 EXPOSE 3306
 
-ENTRYPOINT ["./mysql_script.sh"]
+CMD ["mysqld_safe"]

@@ -1,6 +1,7 @@
 services:
   mariadb:
     init: true
+    image: mariadb
     container_name: mariadb
     networks:
       - inception
@@ -16,6 +17,7 @@ services:
       
   nginx:
     init: true
+    image: nginx
     container_name: nginx
     volumes:
       - wordpress:/var/www/wordpress
@@ -33,6 +35,7 @@ services:
 
   wordpress:
     init: true
+    image: wordpress
     container_name: wordpress
     networks:
       - inception
@@ -48,39 +51,18 @@ services:
     expose:
       - "9000"
 
-  static_website:
-    container_name: static_website
-    build:
-      context: requirements/bonus/static_webpage
-      dockerfile: Dockerfile
-    networks:
-      - inception
-    volumes:
-      - static_site:/var/www/static_site
-    restart: unless-stopped
-
-
 volumes:
   mariadb:
-    driver: local
     driver_opts:
       type: "none"
       o: "bind"
-      device: "/home/boris/data/mariadb"
+      device: "/home/bbresil/data/mariadb"
 
   wordpress:
-    driver: local
     driver_opts:
       type: "none"
       o: "bind"
-      device: "/home/boris/data/wordpress"
-
-  static_site:
-    driver: local
-    driver_opts:
-      type: "none"
-      o: "bind"
-      device: "/home/boris/data/static_site"
+      device: "/home/bbresil/data/wordpress"
 
 networks:
   inception:

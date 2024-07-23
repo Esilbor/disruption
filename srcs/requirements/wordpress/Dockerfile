@@ -11,5 +11,9 @@ RUN         mv wp-cli.phar /usr/local/bin/wp
 RUN         echo "listen=9000" >> /etc/php/7.4/fpm/pool.d/www.conf 
 COPY	    ./conf/wp-config.sh /wp-config.sh
 RUN         chmod 755 /wp-config.sh
-EXPOSE      9000
+
 ENTRYPOINT  ["./wp-config.sh"]
+
+EXPOSE      9000
+
+CMD ["php-fpm7.4", "-F"]
